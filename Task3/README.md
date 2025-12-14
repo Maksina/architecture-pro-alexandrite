@@ -6,5 +6,5 @@
     - [.DRAWIO](https://github.com/Maksina/architecture-pro-alexandrite/blob/alexandrite/Task3/schemas/jewerly_c4_model.drawio)
 3. Задание 3.1 (реализация сервисов и трассировка)
     - [Реализация service-a](https://github.com/Maksina/architecture-pro-alexandrite/tree/alexandrite/Task3/Task%203-1/services/service-a)
-    - [Реализация service-b](https://github.com/Maksina/architecture-pro-alexandrite/tree/alexandrite/Task3/Task%203-1/services/service-a)
+    - [Реализация service-b](https://github.com/Maksina/architecture-pro-alexandrite/tree/alexandrite/Task3/Task%203-1/services/service-b)
     - [Скриншоты трассировки](https://github.com/Maksina/architecture-pro-alexandrite/tree/alexandrite/Task3/Task%203-1/screenshots)
