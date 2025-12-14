@@ -1,0 +1,19 @@
+@startuml change_status
+
+actor operator as "Оператор"
+participant mes_ui as "Веб-интерфейс MES"
+participant mes_api as "Сервис MES"
+database redis  as "Redis(кэш)"
+database mes_db as "База данных MES"
+
+operator -> mes_ui: Смена статуса заказа
+mes_ui -> mes_api: Сменить статус заказа
+mes_api -> mes_db: Обновление статуса конкретного заказа
+alt Статус успешно обновлен
+    mes_api -> redis: Инвалидация кэша
+end
+mes_api --> mes_ui: Результат
+mes_ui --> operator: Результат
+
+
+@enduml
