@@ -1,0 +1,25 @@
+@startuml read_orders
+
+actor operator as "Оператор"
+participant mes_ui as "Веб-интерфейс MES"
+participant mes_api as "Сервис MES"
+database redis  as "Redis(кэш)"
+database mes_db as "База данных MES"
+
+operator -> mes_ui: Запрос дашборда заказов
+mes_ui -> mes_api: Запрос дашборда заказов
+mes_api -> redis: Проверка наличия в кэше
+
+alt Данные есть в кэше
+    redis --> mes_api: дашборд заказов
+else Данных нет в кэше
+    redis --> mes_api: Данные отсутствуют
+    mes_api -> mes_db: Получение данных
+    mes_api -> mes_api: Агрегация данных, формирование дашборда
+    mes_api -> redis: Сохранение полученного дашборда в кэш
+end
+
+mes_api --> mes_ui: результат
+mes_ui --> operator: Дашборд заказов
+
+@enduml
